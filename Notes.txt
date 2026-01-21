@@ -1,0 +1,11 @@
+Always remember - if you create a Model in models.py with foreign key constraints, django adds _id to the field name
+Example : if you do category = models.ForeignKey(Category)
+then you can refer it in two ways
+i. by category 
+ii. by category_id
+
+
+When you set debug=False, allow the hosts - and then if 404 or anny error exist - then django auto render the
+404.html or error_code.html file kept in the templates folder
+
+
