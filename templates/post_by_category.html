@@ -23,7 +23,7 @@
     <div class="col-md-6">
       <div class="card border-0" >
         <div class="card-body">
-          <h3>{{post.title | truncatewords:12}}</h3>
+          <h3><a href="{% url 'blogs' post.slug  %}" class="text-dark font-weight-bold">{{post.title | truncatewords:12}}</a></h3>
           <!--  "| timesince" is a filter which calculates the difference of time from now to one picked up from database-->
           <small class="mb-1 text-muted">{{post.created_at | timesince}} ago | {{post.author}}</small>
           <p class="card-text">{{post.short_description | truncatewords:20}}</p>
