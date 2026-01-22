@@ -23,8 +23,16 @@ from django.conf import settings
 from django.urls import path, include
 from blogs import urls
 
+from blogs import views as BlogsView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('category/',include('blogs.urls')), # jab bhi category pe request aaye -> forward the request to the blogs app ka urls.py
+
+    # Adding urls to a particular slug
+    # Example : /virat-kohli-hits-century
+
+    path('<slug:slug>/', BlogsView.blogs, name="blogs")  # format is <slug:bolg_slug>, but we named slug column as slug
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
