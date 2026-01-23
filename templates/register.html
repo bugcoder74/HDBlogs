@@ -1,1 +1,13 @@
-<h2>Registration Page</h2>
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="text-center">Register</h3>
+
+<from action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-warning">Submit</button>
+</form>
+
+{% endblock %}

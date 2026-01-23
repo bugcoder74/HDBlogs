@@ -12,3 +12,16 @@ When you set debug=False, allow the hosts - and then if 404 or anny error exist 
 See what is Context Processors - go to the blogs/context_processor.py and track the instructions
 After that go to the views.py of root folder to see what changed (with respect to the categories variable)
 
+
+When I added : /slug then anything after / will be treated as slug - even /register will think register as slug
+So better design is to write : /blogs/slug
+
+
+Django modal forms create a form based on the model field
+See how to create model form
+
+1. Create a forms.py in HDBlogs
+2. We are using the default user model that comes from django.contrib.auth.models so import the User from it
+3. Now create a class and extend it to the UserCreationForm (see import in forms.py)
+4. After creating the form - tell it to the url that calls the form creation (here /register so inform views.register)
+5. 

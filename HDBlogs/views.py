@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from blogs.models import Category, Blog
+from .forms import RegistrationForm
 
 def home(request):
     #return HttpResponse("<H2> Welcome, this is the Home Page</H2>")
@@ -24,4 +25,9 @@ def home(request):
 
 
 def register(request):
-    return render(request, 'register.html')
+    form = RegistrationForm()
+    context = {
+        'form': form,
+
+    }
+    return render(request, 'register.html', context)
