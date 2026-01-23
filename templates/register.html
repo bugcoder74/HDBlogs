@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 
 <h3 class="text-center">Register</h3>
-
-<from action="" method="POST">
+<h3 class="text-warning" style="text-align:center;">{{message}}</h3>
+<form action="{% url 'register' %}" method="POST" style="width:500px; margin:auto;"> <!-- See the action, submit button will trigger the same url '/register' and hence the same function views.register will handle this POST method-->
+    
     {% csrf_token %}
-    {{ form }}
+    {{ form | crispy }}
     <button type="submit" class="btn btn-warning">Submit</button>
 </form>
 

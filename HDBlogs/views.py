@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from blogs.models import Category, Blog
 from .forms import RegistrationForm
@@ -24,10 +24,25 @@ def home(request):
 
 
 
-def register(request):
-    form = RegistrationForm()
-    context = {
-        'form': form,
+def register(request): # Same method handling both POST method by register from sunmit button and GET for /register url
+    print(request)
+    if (request.method == 'POST'):
+        form = RegistrationForm(request.POST)
+        print("The form is ", form)
+        if form.is_valid(): # Data Validation
+            form.save()
+            return redirect('home')
+        else:
+            print("=======Errors===========",form.errors)
+            context = {
+                'form' : form,
+                'message' : "There was some error - please fill the form again"
+            }
+            return render(request, 'register.html', context)
+    else:
+        form = RegistrationForm()
+        context = {
+            'form': form,
 
-    }
-    return render(request, 'register.html', context)
+        }
+        return render(request, 'register.html', context)

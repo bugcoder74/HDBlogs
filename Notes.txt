@@ -24,4 +24,12 @@ See how to create model form
 2. We are using the default user model that comes from django.contrib.auth.models so import the User from it
 3. Now create a class and extend it to the UserCreationForm (see import in forms.py)
 4. After creating the form - tell it to the url that calls the form creation (here /register so inform views.register)
-5. 
+5. After that see register.html
+6. To style the form - you can use bootstrap classes or the django crispy forms(best method is to google)
+7. Let us see the django crispy methods
+    i. pip install django-crispy-forms
+    ii. inside INSTALLED_APPS register 'crispy_forms'
+    iii. since we are using bootstrap, make a variable inside settings.py as : CRISPY_TEMPLATE_PACK = 'bootstrap4'
+    iv. pip install crispy-bootstrap4 and register in INSTALLED_APPS as 'crispy_bootstrap4'
+    v. load crispy in register.html by {% load crispy_forms_tags %}
+    vi. {{ forms | crispy }}
