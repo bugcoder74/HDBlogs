@@ -33,6 +33,10 @@ urlpatterns = [
     # Adding urls to a particular slug
     # Example : /virat-kohli-hits-century
 
-    path('<slug:slug>/', BlogsView.blogs, name="blogs")  # format is <slug:bolg_slug>, but we named slug column as slug
+    path('blogs/<slug:slug>/', BlogsView.blogs, name="blogs"),  # format is <slug:bolg_slug>, but we named slug column as slug
+
+    path('register/', views.register, name='register')
+
+
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
