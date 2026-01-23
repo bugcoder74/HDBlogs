@@ -33,3 +33,11 @@ See how to create model form
     iv. pip install crispy-bootstrap4 and register in INSTALLED_APPS as 'crispy_bootstrap4'
     v. load crispy in register.html by {% load crispy_forms_tags %}
     vi. {{ forms | crispy }}
+
+
+
+
+if you have post method dont forget to load csrf_tokens
+<form method="POST>
+ {% csrf_tokens %}
+</form>

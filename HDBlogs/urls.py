@@ -35,7 +35,9 @@ urlpatterns = [
 
     path('blogs/<slug:slug>/', BlogsView.blogs, name="blogs"),  # format is <slug:bolg_slug>, but we named slug column as slug
 
-    path('register/', views.register, name='register')
+    path('register/', views.register, name='register'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout')
 
 
 
