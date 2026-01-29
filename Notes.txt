@@ -41,3 +41,15 @@ if you have post method dont forget to load csrf_tokens
 <form method="POST>
  {% csrf_tokens %}
 </form>
+
+
+
+============ Decorators
+
+1. from django.contrib.auth.decorators import login_required
+2. @login_required(login_url = 'login')
+   def dashboard(request):
+    pass
+
+login_required decorator will execute the view only if the user is authenticated, if not - it will redirect 
+to the login page and will force the user to login
