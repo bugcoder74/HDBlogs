@@ -26,7 +26,8 @@
               <a class="btn btn-sm btn-outline-secondary" href="{% url 'register' %}">Register</a>
             {% else %}
             <span>
-              You are logged in as {{user}} <!--User included in context processors (django.contrib....auth)-->
+              <!-- You are logged in as {{user}} User included in context processors (django.contrib....auth)-->
+              <a class="p-2 text-muted" href="{% url 'dashboard' %}">Dashboard</a>
             </span>
             &emsp;
             <span> <a href="{% url 'logout' %}">Logout</a></span>
